@@ -1,5 +1,5 @@
 # GenericTableView
-Simple &amp; Dynamic Generic TableView with Examples
+Simple &amp; Dynamic GenericTableView with Examples
 
 ## Features:
 
