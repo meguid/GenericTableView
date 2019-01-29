@@ -4,7 +4,7 @@ GenericTableView with Examples (Simple - Dynamic - Testable)
 ## Goals:
 
 - [x] Generic TableView Data Source / Delegate
-- [x] Expandable TableView (Depends on protocols)
+- [x] Dynamic TableView (Depends on protocols)
 - [x] Reusable TableView (We don't need storyboards for tableview, we only need xib files for cells)
 - [x] Better TableView Testability (The tableview will be generic and has zero business logic)
 - [x] Better Cells Testability (The cells will be depending on the Item -which is testable- for the logic)
