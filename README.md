@@ -13,14 +13,14 @@ Simple &amp; Dynamic Generic TableView with Examples
 - Adding the tableview would be like this
 
   ```swift
-    let users = [UsersDataSource(user: User(firstname: "Adam", lastname: "Meguid")),
-                 UsersDataSource(user: User(firstname: "Ahmed", lastname: "Ali"))]
+  let users = [UsersDataSource(user: User(firstname: "Adam", lastname: "Meguid")),
+               UsersDataSource(user: User(firstname: "Ahmed", lastname: "Ali"))]
 
-    func addTableView() {
-        let usersList = GenericTableView(frame: view.bounds)
-        usersList.updateDataSource(items: users)
-        self.view.addSubview(usersList)
-    }
+  func addTableView() {
+      let usersList = GenericTableView(frame: view.bounds)
+      usersList.updateDataSource(items: users)
+      self.view.addSubview(usersList)
+  }
   ```
   
   But first we need to add 3 things
@@ -28,41 +28,41 @@ Simple &amp; Dynamic Generic TableView with Examples
   - Model 
   
   ```swift
-    struct User: GenericModel {
-      var firstname: String
-      var lastname: String
-    } 
+  struct User: GenericModel {
+    var firstname: String
+    var lastname: String
+  } 
   ```  
   
   - Cell 
   
   ```swift
-    class UserCell: UITableViewCell, GenericCell {
-      @IBOutlet weak var firstname: UILabel!
-      @IBOutlet weak var lastname: UILabel!
+  class UserCell: UITableViewCell, GenericCell {
+    @IBOutlet weak var firstname: UILabel!
+    @IBOutlet weak var lastname: UILabel!
 
-      func configure(model: GenericModel) {
-          if let user = model as? User {
-              firstname.text = user.firstname
-              lastname.text = user.lastname
-          }
-      }
+    func configure(model: GenericModel) {
+        if let user = model as? User {
+            firstname.text = user.firstname
+            lastname.text = user.lastname
+        }
     }
+  }
   ```
 
   - Data Source
   
   ```swift
-    class UsersDataSource: GenericDataSource {
-    
-      var type: UITableViewCell.Type = UserCell.self
-      var action: (GenericModel) -> () = {_ in }
-      var item: GenericModel
-    
-      init(user: User) {
-          item = user
-      }
-    } 
+  class UsersDataSource: GenericDataSource {
+
+    var type: UITableViewCell.Type = UserCell.self
+    var action: (GenericModel) -> () = {_ in }
+    var item: GenericModel
+
+    init(user: User) {
+        item = user
+    }
+  } 
   ```  
   
 #### And that's all you need.
@@ -84,7 +84,7 @@ Simple &amp; Dynamic Generic TableView with Examples
             // here navigate to $user view
         }
     }
-  ```
+    ```
   
 - Supporting Multi Actions
 
@@ -121,7 +121,7 @@ Simple &amp; Dynamic Generic TableView with Examples
       .
       var activated: Bool
     }
-  ```
+    ```
   
    
 - Supporting Multi Cells with Multi Actions
@@ -159,4 +159,4 @@ Simple &amp; Dynamic Generic TableView with Examples
           item = user
       }
     } 
-  ```
+    ```
